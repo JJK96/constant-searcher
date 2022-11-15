@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-rg $@ -I -N /path/to/defines.h
+keyword=$1
+shift
+if [[ "$1" = "-e" ]]; then
+    keyword="\b$keyword\b"
+    shift
+fi
+rg "$keyword" $@ -I -N /path/to/defines.h

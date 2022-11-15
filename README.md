@@ -12,6 +12,6 @@ For more convenience, edit ./find-windows-definition with the path to this repos
 
 in C:\Windows\Program Files (x86)\Windows Kits\Include, execute the following:
 
-    rg -o -I "^#define +[A-Z_]+.+0x[A-Za-z0-9].*\$" | sed -E 's/#define +//' | sort -u > defines.h
+    rg -o -I "^#define +[A-Z_]+[ \(\)A-Z]+(0x)?[A-Za-z0-9]+.*\$" | rg "\d" | perl -pe 's/[ \t]+/ /g' | sed -E 's/#define +//' | sed 's#//.*##' | rg -v "^_" > ~/git/constant_searcher/defines.h
 
 This uses RipGrep to search for all definitions that map a macro to an integer.
