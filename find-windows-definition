@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rg $@ /path/to/defines.h
+rg $@ -I -N /path/to/defines.h
