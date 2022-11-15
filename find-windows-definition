@@ -5,4 +5,4 @@ if [[ "$1" = "-e" ]]; then
     keyword="\b$keyword\b"
     shift
 fi
-rg "$keyword" $@ -I -N /path/to/defines.h
+rg "$keyword" $@ -I -N -p /path/to/defines.h | sort -u
