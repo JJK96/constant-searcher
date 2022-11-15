@@ -10,7 +10,7 @@ For more convenience, edit ./find-windows-definition with the path to this repos
 
 ## How I compiled this
 
-in C:\Windows\Program Files (x86)\Windows Kits\Include, execute the following:
+in C:\Program Files (x86)\Windows Kits\Include, execute the following:
 
      rg -o -I "^#define +[A-Z_]+ [ \(\)A-Z_]+(0x)?[A-Za-z0-9]+L?[ \(\)]*" | rg "\d" | perl -pe 's/[ \t]+/ /g' | sed -E 's/#define +//' | sed 's#//.*##' | sed 's#/\*.*##' | rg -v "^_" | rg -v "\\\\\s*\$" > ~/git/constant_searcher/defines.h
 
