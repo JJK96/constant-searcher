@@ -5,4 +5,4 @@ if [[ "$1" = "-e" ]]; then
     keyword="\b$keyword\b"
     shift
 fi
-rg "$keyword" $@ -I -N -p /path/to/defines.h | sort -u
+rg -i "$keyword" $@ -I -N -p $HOME/git/constant_searcher/defines.h | sort -u

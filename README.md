@@ -16,3 +16,5 @@ Execute the following:
      rg -o -I "^#define +[A-Z_]+ [ \(\)A-Z_]+(0x)?[A-Za-z0-9]+L?[ \(\)]*" | rg "\d" | perl -pe 's/[ \t]+/ /g' | sed -E 's/#define +//' | sed 's#//.*##' | sed 's#/\*.*##' | rg -v "^_" | rg -v "\\\\\s*\$" > ~/git/constant_searcher/defines.h
 
 This uses RipGrep to search for all definitions that map a macro to an integer.
+
+Manually added some wdm.h constants
